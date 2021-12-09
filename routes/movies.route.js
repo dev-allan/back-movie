@@ -27,7 +27,7 @@ Router.route("/movies")
     }
   });
 
-Router.route("movies/:id")
+Router.route("/movies/:id")
   .get(async (req, res) => {
     try {
       let movie = await MovieModel.findById(req.params.id);

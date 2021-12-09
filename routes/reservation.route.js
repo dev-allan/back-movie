@@ -27,7 +27,7 @@ Router.route("/reservations")
     }
   });
 
-Router.route("reservations/:id")
+Router.route("/reservations/:id")
   .get(async (req, res) => {
     try {
       let reservation = await ReservationModel.findById(req.params.id);

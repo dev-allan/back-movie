@@ -27,7 +27,7 @@ Router.route("/clients")
     }
   });
 
-Router.route("clients/:id")
+Router.route("/clients/:id")
   .get(async (req, res) => {
     try {
       let client = await ClientModel.findById(req.params.id);
@@ -39,7 +39,8 @@ Router.route("clients/:id")
       });
     }
   })
-  .delete(async (req, res) => {
+.delete(async (req, res) => {
+    console.log(req.params.id)
     try {
       let resp = await ClientModel.findByIdAndDelete(req.params.id);
       res.json(resp);

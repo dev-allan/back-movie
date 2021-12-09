@@ -27,7 +27,7 @@ Router.route("/salles")
     }
   });
 
-Router.route("salles/:id")
+Router.route("/salles/:id")
   .get(async (req, res) => {
     try {
       let salle = await SalleModel.findById(req.params.id);
