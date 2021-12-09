@@ -27,27 +27,28 @@ Router.route("/salles")
     }
   });
 
-Router.route("salles/:id").get(async (req, res) => {
-  try {
-    let salle = await SalleModel.findById(req.params.id);
-    res.status(200).json(salle);
-  } catch (err) {
-    console.error(err);
-    res.status(400).json({
-      message: err.message,
-    });
-  }
-})
-.delete(async (req, res) => {
-    try{
-        let resp = await SalleModel.findByIdAndDelete(req.params.id);
-        res.json(resp);
-    }catch(err){
-        console.error(err);
-        res.status(400).json({
-            message : err.message
-        })
+Router.route("salles/:id")
+  .get(async (req, res) => {
+    try {
+      let salle = await SalleModel.findById(req.params.id);
+      res.status(200).json(salle);
+    } catch (err) {
+      console.error(err);
+      res.status(400).json({
+        message: err.message,
+      });
     }
-})
+  })
+  .delete(async (req, res) => {
+    try {
+      let resp = await SalleModel.findByIdAndDelete(req.params.id);
+      res.json(resp);
+    } catch (err) {
+      console.error(err);
+      res.status(400).json({
+        message: err.message,
+      });
+    }
+  });
 
 module.exports = Router;

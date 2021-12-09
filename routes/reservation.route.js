@@ -27,27 +27,28 @@ Router.route("/reservations")
     }
   });
 
-Router.route("reservations/:id").get(async (req, res) => {
-  try {
-    let reservation = await ReservationModel.findById(req.params.id);
-    res.status(200).json(reservation);
-  } catch (err) {
-    console.error(err);
-    res.status(400).json({
-      message: err.message,
-    });
-  }
-})
-.delete(async (req, res) => {
-    try{
-        let resp = await ReservationModel.findByIdAndDelete(req.params.id);
-        res.json(resp);
-    }catch(err){
-        console.error(err);
-        res.status(400).json({
-            message : err.message
-        })
+Router.route("reservations/:id")
+  .get(async (req, res) => {
+    try {
+      let reservation = await ReservationModel.findById(req.params.id);
+      res.status(200).json(reservation);
+    } catch (err) {
+      console.error(err);
+      res.status(400).json({
+        message: err.message,
+      });
     }
-})
+  })
+  .delete(async (req, res) => {
+    try {
+      let resp = await ReservationModel.findByIdAndDelete(req.params.id);
+      res.json(resp);
+    } catch (err) {
+      console.error(err);
+      res.status(400).json({
+        message: err.message,
+      });
+    }
+  });
 
 module.exports = Router;
