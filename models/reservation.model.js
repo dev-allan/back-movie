@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
+const MovieModel = require('./movie.model');
 const Schema = mongoose.Schema;
 
+// const MovieModel = require("./movie.model");
+
 const reservationSchema = Schema({
-    titleMovie : [{ type : Schema.Types.ObjectId, ref : 'Movie'}],
-    salle : [{ type : Schema.Types.ObjectId, ref : 'Salle'}],
-    clients : [{ type : Schema.Types.ObjectId, ref : 'Client'}]
+    movie_id : [{ type : Schema.Types.ObjectId, ref : 'movies'}],
+    salle_id : [{ type : Schema.Types.ObjectId, ref : 'salles'}],
+    clients_id : [{ type : Schema.Types.ObjectId, ref : 'clients'}]
 })
 
 const RevervationSchema = mongoose.model("reservation", reservationSchema);

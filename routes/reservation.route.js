@@ -51,4 +51,18 @@ Router.route("/reservations/:id")
     }
   });
 
+// Router.route('/reservations/display/:id')
+// .get(async (req, res) => {
+//   let reservations = await ReservationModel.findById(req.body.id).populate("clients").exec(function (err, test){
+//     if (err) return handleError(err);
+//     console.log('The author is %s', test);
+//   });
+//   // if (reservations.length === 0) {
+//   //   res.status(404);
+//   // } else {
+//   //   res.status(200);
+//   // }
+//   res.json(reservations);
+// })
+
 module.exports = Router;

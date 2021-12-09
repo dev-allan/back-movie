@@ -6,6 +6,6 @@ const salleSchema = Schema({
   numberOfPlace: { type: Number, required: true },
 });
 
-const SalleSchema = mongoose.model("salle", salleSchema);
+const SalleSchema = mongoose.model("salles", salleSchema);
 
 module.exports = SalleSchema;
