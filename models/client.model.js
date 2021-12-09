@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const clientSchema = Schema({
   name: { type: String, required: true },
-  phoneNumber: { type: String, required: true },
-  adress: String,
+  username : { type: String, required: true },
+  email : { type: String, required: true },
 });
 
 const ClientSchema = mongoose.model("clients", clientSchema);

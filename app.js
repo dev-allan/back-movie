@@ -1,4 +1,5 @@
 const express = require('express');
+var cors = require('cors')
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -13,6 +14,8 @@ const salleRoute = require("./routes/salle.route");
 const app = express();
 
 const PORT = process.env.NODE_PORT || 3000;
+
+app.use(cors())
 
 app.use(express.json());
 
